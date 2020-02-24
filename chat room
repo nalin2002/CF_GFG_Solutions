@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+   string a,b;
+   b="hello";
+   cin>>a;
+   int j=0;
+   int pas=0;
+   for(int i=0;i<a.size();i++){
+   	if(a[i]==b[j]){
+   		j++;
+   		pas++;
+   		if(pas==5){
+   			break;
+   		}
+   	}
+   }
+   if(pas==5){
+   	cout<<"YES";
+   }
+   else 
+   cout<<"NO";
+	return 0;
+}
