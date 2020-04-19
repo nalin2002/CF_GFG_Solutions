@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int n,m,a,b;
+	cin>>n>>m>>a>>b;
+	int r1=n*a;
+	int r2,r3;
+	if(n>m){
+	   if(n%m==0){
+	    r2=(n/m)*b;
+	    r3=r2;
+	}
+	else{
+	   r2=(n/m)*b+a*(n%m);
+	   r3=(n/m)*b+b;
+	}
+	cout<<min(r1,min(r2,r3));
+	}else{
+	   cout<<min(r1,b);
+	}
+	return 0;
+}
