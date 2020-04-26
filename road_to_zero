@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+  
+int main(){
+   int t;
+   cin>>t;
+   while(t--){
+      int x,y;
+      cin>>x>>y;
+      int a,b;
+      cin>>a>>b;
+      if(x<y){
+         int c=a*(y-x)+b*x;
+         int d=a*(y-x)+2*a*x;
+         cout<<min(c,d)<<endl;
+      }
+      else if(x>y){
+         int c=a*(x-y)+b*y;
+          int d=a*(x-y)+2*a*y;
+         cout<<min(c,d)<<endl;
+      }
+      else if(x==y){
+         int c=min(2*a*x,b*y);
+         cout<<c<<endl;
+      }
+      
+   }
+	return 0;
+}
