@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+   int sub(int a){
+       int d1=(-1+sqrt(1+24*a))/6;
+       if(d1>0){
+       int d2=(3*d1*d1+d1)/2;
+       int d3=a-d2;
+       return d3;
+       }
+       else{
+           return 0;
+       }
+   }
+
+int main() {
+	 int t;
+	 cin>>t;
+	 while(t--){
+	     int n;
+	     cin>>n;
+	     int x=(-1+sqrt(1+24*n))/6;
+	     int y=((3*x*x+x)/2);
+	     int z=n-y;
+	     int count=0;
+	     while(z>0){
+	        count++;
+	        z=sub(z);
+	       // cout<<count<<endl;
+	        //cout<<z<<endl;
+	     }
+	     cout<<count<<endl;
+	 }
+	return 0;
+}
