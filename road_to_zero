@@ -1,30 +1,55 @@
 #include <iostream>
+#include <cmath>
 #include <algorithm>
 using namespace std;
-  
-int main(){
-   int t;
-   cin>>t;
-   while(t--){
-      int x,y;
-      cin>>x>>y;
-      int a,b;
-      cin>>a>>b;
-      if(x<y){
-         int c=a*(y-x)+b*x;
-         int d=a*(y-x)+2*a*x;
-         cout<<min(c,d)<<endl;
-      }
-      else if(x>y){
-         int c=a*(x-y)+b*y;
-          int d=a*(x-y)+2*a*y;
-         cout<<min(c,d)<<endl;
-      }
-      else if(x==y){
-         int c=min(2*a*x,b*y);
-         cout<<c<<endl;
-      }
-      
-   }
+long long int mini(long long int m1,long long int m2,long long int m3){
+	if(m1<m2){
+		if(m1<m3){
+			return m1;
+		}
+		else{
+			return m3;
+		}
+	}
+	else{
+		if(m2<m3){
+			return m2;
+		}
+		else{
+			return m3;
+		}
+	}
+}
+ 
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	     long long int x,y,a,b;
+	    cin>>x>>y>>a>>b;
+	    
+	    if(x>y){
+	      long long int m1=a*(x-y)+b*y;
+	      long long int m2=b*x+a*(x-y);
+	      long long int m3=(x+y)*a;
+	       cout<<mini(m1,m2,m3)<<endl;
+	    }
+	    else if(y>x){
+	        long long int m1=a*(y-x)+b*x;
+	        long long int m2=b*y+a*(y-x);
+	       long long int m3=(x+y)*a;
+	       cout<<mini(m1,m2,m3)<<endl;
+	    }
+	    else if(x==y){
+	        long long int m1=b*x;
+	         long long int m2=2*a*x;
+	        if(m1>m2){
+	        cout<<m2<<endl;
+	        }
+	        else{
+	        	cout<<m1<<endl;
+	        }
+	    }
+	}
 	return 0;
 }
