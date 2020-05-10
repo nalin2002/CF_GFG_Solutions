@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+//p is prime
+#define P 1000000007
+long long int binary(long long int x,long long int n,long long int p){
+    if(n==0) return 1;
+    if(n==1) return x%p;
+    else{
+        long long int temp=binary(x,n/2,p);
+        temp=(temp*temp)%p;
+        if(n%2==0){
+            return temp;
+        }
+        else{
+            return ((x%p)*temp)%p;
+        }
+    }
+}
+
+int main() {
+	// your code goes here
+	long long int x,n;
+	cin>>x>>n;
+    cout<<binary(x,n,P)<<endl;
+	return 0;
+}
