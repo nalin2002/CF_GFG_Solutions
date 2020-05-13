@@ -1,0 +1,45 @@
+#include <iostream>
+#define P 1000000000
+using namespace std;
+long long int a(long long int n,long long int b[],long long int c[],long long int k){
+    long long int arr[n+1];
+    for(int i=1;i<=n;i++){
+    if((i)<=k){
+        arr[i]=b[i-1];
+    }
+    else{
+        long long int sum=0;
+        for(int j=1;j<=k;j++){
+            sum+=c[j-1]*arr[i-j];
+        }
+        arr[i]=sum;
+    }
+    }
+    return arr[n];
+}
+
+int main() {
+	// your code goes here
+	long int t;
+	cin>>t;
+	while(t--){
+	    long long int k;
+	    cin>>k; //no of ele in b and cin
+	    long long int b[k];
+	    long long int c[k];
+	    for(long long int i=0;i<k;i++){
+	        cin>>b[i];
+	    }
+	    for(long long  int i=0;i<k;i++){
+	        cin>>c[i];
+	    }
+	   long long int n;
+	    cin>>n;
+	    long long int ans=a(n,b,c,k);
+	    while(ans<0){
+	        ans+=P;
+	    }
+	    cout<<ans%P<<endl;
+	}
+	return 0;
+}
