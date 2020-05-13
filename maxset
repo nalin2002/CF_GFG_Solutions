@@ -1,0 +1,45 @@
+vector<int> Solution::maxset(vector<int> &A) {
+    long long int n=A.size();
+    vector<long long int>p;
+    vector <int>st;
+    long long int sum=0;
+    for(long long int i=0;i<n;i++){
+        if(A[i]>0){
+            sum+=A[i];
+        }
+        else{
+         p.push_back(sum);
+         p.push_back(i);
+         sum=0;
+        }
+    }
+    p.push_back(sum);
+    long long int max=p[0];
+    for(long long int i=2;i<p.size();i=i+2){
+        if(p[i]>max){
+            max=p[i];
+        }
+    }
+    long long int x,y;
+    for(long long int i=0;i<p.size();i=i+2){
+        if(p[i]==max && i!=0 && i!=(p.size()-1)){
+         y=p[i+1];
+         x=p[i-1];
+         break;
+        }
+        else if(p[0]==max){
+            x=-1;
+            y=p[1];
+            break;
+        }
+        else if(p[p.size()-1]==max && p.size()%2!=0){
+            x=p[p.size()-2];
+            y=n;
+            break;
+        }
+    }
+    for(int i=x+1;i<y;i++){
+        st.push_back((int)A[i]);
+    }
+    return st;
+}
