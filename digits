@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+#include <algorithm>
+using namespace std; 
+int mini(long long int x){
+  int smallest=9;
+  while(x){
+      int r=x%10;
+      smallest=min(r,smallest);
+      x=x/10;
+  }
+  return smallest;
+}
+int maxx(long long int x){
+     int largest=0;
+  while(x){
+      int r=x%10;
+      largest=max(r,largest);
+      x=x/10;
+  }
+  return largest;
+}
+long long int ans(long long int a1,long long int k){
+    vector<long long int>c(k+1);
+    c[1]=a1;
+    for(int i=2;i<=k;i++){
+        c[i]=c[i-1]+mini(c[i-1])*maxx(c[i-1]);
+    }
+    return c[k];
+}
+
+
+int main() 
+{ 
+    int t;
+    cin>>t;
+    while(t--){
+        long long int a1,k;
+        cin>>a1>>k;
+       cout<<ans(a1,k)<<endl;
+    }
+	return 0; 
+} 
+
+
