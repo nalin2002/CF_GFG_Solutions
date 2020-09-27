@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <set>
+using namespace std;
+
+int main()
+{
+   
+   string s;
+   cin>>s;
+   int n=s.size();
+   int dist=0;
+   set<char> st;
+   for(int i=0;i<n;i++){
+       st.insert(s[i]);
+   }
+   dist=st.size();
+   if(dist&1){
+       cout<<"IGNORE HIM!"<<endl;
+   }
+   else{
+       cout<<"CHAT WITH HER!"<<endl;
+   }
+   return 0;
+}
