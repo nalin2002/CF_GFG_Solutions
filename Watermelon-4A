@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+bool func(int w){
+    if(w<=2) return false;
+    if(w%2==0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+int main()
+{
+   int w;
+   cin>>w;
+   if(func(w)){
+       cout<<"YES"<<endl;
+   }
+   else{
+       cout<<"NO"<<endl;
+   }
+   return 0;
+}
