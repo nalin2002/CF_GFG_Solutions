@@ -1,0 +1,40 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+int main()
+{
+ long long int n;
+ cin>>n;
+ int count=0;
+ while(n!=0){
+     int rem= n%10;
+     if(rem==4 || rem==7)
+     count++;
+     
+     n=1ll*(n/10);
+ }
+ bool flag=true;
+ int temp=count;
+ 
+ while(count!=0){
+     int rem=count%10;
+     if(rem!=4 && rem!=7){
+         flag=false;
+         break;
+     }
+     count=count/10;
+ }
+count=temp;
+ if(flag && count!=0){
+     cout<<"YES"<<endl;
+ }
+ else if(flag && count==0){
+     cout<<"NO"<<endl;
+ }
+ else{
+     cout<<"NO"<<endl;
+ }
+   return 0;
+}
