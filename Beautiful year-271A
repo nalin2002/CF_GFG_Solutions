@@ -1,0 +1,30 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+bool distinct(int x){
+    unordered_set<int> s;
+    while(x!=0){
+        int rem=x%10;
+        if(s.find(rem)!=s.end()){
+            return false;
+        }
+        else{
+            s.insert(rem);
+        }
+        x=x/10;
+    }
+    return true;
+}
+int main()
+{
+   int y;
+   cin>>y;
+   for(int i=y+1;;i++){
+       if(distinct(i)){
+           cout<<i<<endl;
+           break;
+       }
+       
+   }
+   return 0;
+}
