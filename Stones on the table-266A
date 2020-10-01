@@ -19,6 +19,7 @@ int main()
            ++b;
        }
    }
+   
    cout<<r+g+b<<endl;
    return 0;
 }
