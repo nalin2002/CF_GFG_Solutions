@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
+int main()
+{
+   int n;
+   cin>>n;
+   int p,q;
+   cin>>p;
+   set<int> s;
+   
+   vector<int> pv(n);
+   vector<int> qv(n);
+   for(int i=0;i<p;i++){
+       cin>>pv[i];
+       s.insert(pv[i]);
+   }
+   cin>>q;
+   for(int i=0;i<q;i++){
+       cin>>qv[i];
+       s.insert(qv[i]);
+   }
+   bool flag=true;
+   for(int i=1;i<=n;i++){
+       if(s.find(i)==s.end()){
+           flag=false;
+           break;
+       }
+   }
+   
+   if(flag){
+       cout<<"I become the guy"<<endl;
+   }
+   else{
+       cout<<"Oh, my keyboard!"<<endl;
+   }
+   return 0;
+}
