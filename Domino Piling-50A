@@ -8,5 +8,6 @@ int main()
    cin>>m>>n;
    int squares=m*n;
    cout<<squares/2<<endl;
+   
    return 0;
 }
