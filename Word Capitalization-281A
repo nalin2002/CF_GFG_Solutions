@@ -12,5 +12,6 @@ int main()
        inp[0]=(char)(((int)inp[0])-32);
        cout<<inp<<endl;
    }
+   
    return 0;
 }
