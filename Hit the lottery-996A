@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+   int n;
+   cin>>n;
+   int x= n/100;
+   int rem1=n%100;
+   int y=rem1/20;
+   int rem2=rem1%20;
+   int z=rem2/10;
+   int rem3=rem2%10;
+   int v=rem3/5;
+   int rem4=rem3%5;
+   int p=rem4/1;
+   cout<< x+y+z+v+p<<endl;
+}
