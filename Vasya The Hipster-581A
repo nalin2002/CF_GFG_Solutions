@@ -1,0 +1,15 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+ 
+int main()
+{
+   int a,b;
+   cin>>a>>b;
+   int x=min(a,b);
+   cout<<min(a,b)<<" ";
+   a-=x;
+   b-=x;
+   cout<<min(a/2,b/2)<<endl;
+   return 0;
+}
