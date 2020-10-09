@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+int main()
+{
+   int n,k;
+   cin>>n>>k;
+   vector<int> t(n);
+   for(int i=0;i<n;i++){
+       t[i]=5*(i+1);
+   }
+   
+   int max_time=240-k;
+   int sum=0;
+   int y;
+   for(int i=0;i<n;i++){
+       sum+=t[i];
+       if(sum<max_time) continue;
+       else if(sum==max_time){
+           y=i+1;
+           break;
+       }
+       else{
+           y=i;
+           break;
+       }
+   }
+   if(sum<max_time) y=n;
+   
+   cout<<y<<endl;
+   return 0;
+}
