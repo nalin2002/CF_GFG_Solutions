@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main()
+{
+   int n;
+   cin>>n;
+   vector<int> v(n);
+   for(int i=0;i<n;i++){
+       cin>>v[i];
+   }
+   int count=0;
+   for(int i=1;i<n;i++){
+       bool val=true;
+       for(int j=0;j<i;j++){
+           if(v[j]>=v[i]){
+               val=false;
+               break;
+           }
+       }
+       if(val==true) count++;
+   }
+   for(int i=1;i<n;i++){
+       bool val=true;
+       for(int j=0;j<i;j++){
+           if(v[j]<=v[i]){
+               val=false;
+               break;
+           }
+       }
+       if(val==true) count++;
+   }
+   cout<<count<<endl;
+   return 0;
+}
