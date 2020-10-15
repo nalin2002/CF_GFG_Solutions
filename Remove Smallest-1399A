@@ -27,3 +27,8 @@ int main()
    }
    return 0;
 }
+
+
+//Firstly, let's sort the initial array. Then it's obvious that the best way to remove elements is from smallest to biggest.
+//And if there is at least one i such that 2≤i≤n and ai−ai−1>1 then the answer is "NO", because we have no way to remove ai−1.
+//Otherwise, the answer is "YES".
