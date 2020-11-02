@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  int n,k;
+  cin>>n>>k;
+  vector<int> v(n);
+  for(int i=0;i<n;i++){
+      cin>>v[i];
+  }
+  int req=5-k;
+  int temp=0,teams=0;
+  for(int i=0;i<n;i++){
+      if(v[i]<=req){
+          temp++;
+          if(temp==3){
+              teams++;
+              temp=0;
+          }
+      }
+  }
+  cout<<teams<<endl;
+   return 0;
+}
