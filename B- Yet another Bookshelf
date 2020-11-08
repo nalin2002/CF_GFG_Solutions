@@ -1,0 +1,44 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> v(n);
+        int count=0;
+        for(int i=0;i<n;i++){
+            cin>>v[i];
+            if(v[i]==1) count++;
+        }
+        reverse(v.begin(),v.end());
+        while(v[v.size()-1]==0){
+            v.pop_back();
+        }
+        reverse(v.begin(),v.end());
+        if(count<=1) {
+        cout<<"0"<<endl;
+        }
+        else{
+        int ans=0,c=0;
+        for(int i=0;i<n;i++){
+            if(v[i]==1){
+                 ans+=c;
+                 c=0;
+            }
+            if(v[i]==0){
+            c++;
+            }
+        }
+        cout<<ans<<endl;
+        }
+    }
+   
+   return 0;
+}
