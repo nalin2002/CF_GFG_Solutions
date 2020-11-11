@@ -47,3 +47,41 @@ int main()
    
    return 0;
 }
+
+instead of using a set we can do this
+
+for(int i=0;i<n;i++) 
+cin>>v[i];
+
+int ok=1;
+for(int i=1;i<n;i++){
+if(v[i]!=v[0]){
+ok=0;
+break;
+}
+}
+if(ok){
+cout<<"-1"<<endl;
+}
+else{
+ int max_val=*max_element(v.begin(),v.end());
+            int index=-1;
+            for(int i=0;i<n;i++){
+                if(v[i]==max_val){
+                    index=i;
+                    break;
+                }
+            }
+            if(index==0){
+                for(int i=index+1;i<n;i++){
+                    if(v[i]!=max_val){
+                        cout<<i<<endl;
+                        break;
+                    }
+                }
+            }
+            else{
+            cout<<index+1<<endl;   
+            }
+
+}
