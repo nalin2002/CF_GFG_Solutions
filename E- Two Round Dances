@@ -1,0 +1,39 @@
+If in a circular table there are n people,number of ways we can rearrange them is (n-1)!
+
+First we will select all combinations of n/2 people in round 1 - #combinations= (nCn/2)/2   (divide by 2 to avoid repetition)
+for each n/2 people we can rearrange them in ((n/2)-1)! in round 1 and in each ((n/2)-1)! ways in round 1 we can arrange round 2 people in ((n/2)-1)!
+
+So total ways = (nCn/2)/2 * ((n/2)-1)! * ((n/2)-1)! 
+
+#include <iostream>
+
+using namespace std;
+long long int fact(int x){
+    if(x==0) return 1;
+    return x*fact(x-1);
+}
+long long int func(int n,int r){
+    long long int p=1,k=1;
+    if(n-r<r){
+        r=n-r;
+    }
+    for(int i=0;i<r;i++){
+        p*=(n-i);
+        p/=(i+1);
+    }
+    return p;
+}
+int main()
+{
+   int n;
+   cin>>n;
+   if(n==2){
+       cout<<"1"<<endl;
+   }
+   else{
+       long long int ncr= func(n,n/2)/2;
+       long long int fac=fact((n/2)-1);
+       cout<< (ncr*fac*fac) <<endl;
+   }
+   return 0;
+}
