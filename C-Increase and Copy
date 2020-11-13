@@ -1,0 +1,32 @@
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int func(int x){
+    return x-1;
+}
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+      int f_sqrt= floor(sqrt(n));
+      if(f_sqrt * f_sqrt>=n){
+          cout<< 2*f_sqrt-2<<endl;
+      }
+      else if((f_sqrt+1)*f_sqrt>=n){
+          cout<< 2*f_sqrt-1 <<endl;
+      }
+      else{
+          cout<< 2*f_sqrt<<endl;
+      }
+   }
+   return 0;
+}
+
+//  https://www.youtube.com/watch?v=z0Jvv1ADVaE&ab_channel=sKSama
