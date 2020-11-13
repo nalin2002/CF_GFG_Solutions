@@ -1,0 +1,45 @@
+among the given n squares just find is there any symmetric tile among the n tiles.If you found then output is yes else No
+
+#include <iostream>
+#include <vector>
+using namespace std;
+ 
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--){
+      int n,m;
+      cin>>n>>m;
+      vector<vector<int>> mat;
+      vector<int> temp;
+      for(int i=0;i<n;i++){
+          int x,y,z,w;
+          cin>>x>>y>>z>>w;
+          temp.push_back(x);
+          temp.push_back(y);
+          temp.push_back(z);
+          temp.push_back(w);
+          mat.push_back(temp);
+          temp.clear();
+      }
+      if(m%2!=0){
+          cout<<"NO"<<endl;
+      }
+      else{
+          bool val=false;
+          for(auto x: mat){
+              if(x[1]==x[2]){
+                  val=true;
+                  break;
+              }
+          }
+          if(val) 
+          cout<<"YES"<<endl;
+          else
+          cout<<"NO"<<endl;
+          
+      }
+   }
+   return 0;
+}
