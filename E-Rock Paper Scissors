@@ -3,10 +3,11 @@
 #include <vector>
 using namespace std;
 int min_func(vector<int>& a,vector<int>& b){
-    return min(a[0],b[1]) +min(a[1],b[2])+min(a[2],b[0]);
+   return max(0,a[0]-(b[0]+b[2]))+max(0,a[1]-(b[1]+b[0]))+max(0,a[2]-(b[2]+b[1]))
+   
 }
 int max_func(vector<int>& a,vector<int>& b){
-    
+     return min(a[0],b[1]) +min(a[1],b[2])+min(a[2],b[0]);
 }
 int main()
 {
