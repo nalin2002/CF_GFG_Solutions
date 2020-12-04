@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+typedef long long int ll; 
+ 
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--){
+       int n;
+       cin>>n;
+       vector<int> v(n);
+       for(int i=0;i<n;i++){
+           v[i]=n-i;
+       }
+       if(n&1){
+           int temp=v[n/2];
+           v[n/2]=v[0];
+           v[0]=temp;
+       }
+       
+       for(int i=0;i<n;i++){
+           cout<<v[i]<<" ";
+       }
+       cout<<endl;
+   }
+   return 0;
+}
