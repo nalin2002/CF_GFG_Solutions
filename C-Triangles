@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<string> s(n);
+        for(int i=0;i<n;i++){
+            cin>>s[i];
+        }
+        vector<int> ans(10,0);
+        vector<int> minr(10,n);
+        vector<int> minc(10,n);
+        vector<int> maxr(10,-1);
+        vector<int> maxc(10,-1);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                int num=s[i][j]-'0';
+                minr[num]=min(minr[num],i);
+                minc[num]=min(minc[num],j);
+                maxr[num]=max(maxr[num],i);
+                maxc[num]=max(maxc[num],j);
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                int num=s[i][j]-'0';
+                ans[num]=max(ans[num],max(maxr[num]-i,i-minr[num])*max(j,n-1-j));
+                ans[num]=max(ans[num],max(maxc[num]-j,j-minc[num])*max(i,n-1-i));
+            }
+        }
+        
+        for(int x:ans){
+            cout<<x<<" ";
+        }
+        cout<<endl;
+    }
+   return 0;
+}
