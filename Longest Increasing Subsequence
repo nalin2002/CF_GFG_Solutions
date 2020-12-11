@@ -1,0 +1,42 @@
+// return length of longest strictly increasing subsequence
+//DP way
+
+int longestSubsequence(int n, int a[])
+{
+   vector<int> dp(n,1);
+   for(int i=1;i<n;i++){
+       for(int j=0;j<i;j++){
+           if(a[j]<a[i] && dp[j]+1>dp[i]){
+               dp[i]=dp[j]+1;
+           }
+       }
+   }
+   return *max_element(dp.begin(),dp.end());
+}
+
+// Recursive way
+
+// return length of longest strictly increasing subsequence
+int func(int a[],int n,int* max_len){
+    if(n==1) return 1;
+    int temp_max=1,res;
+    
+    
+    for(int i=1;i<n;i++){
+        res=func(a,i,max_len);
+        if (a[i-1] < a[n-1] && res + 1 > temp_max) 
+            temp_max = res + 1;
+    }
+    
+    if(*max_len<temp_max){
+        *max_len=temp_max;
+    }
+    return temp_max;
+}
+int longestSubsequence(int n, int a[])
+{
+   int max_len=1;
+   func(a,n,&max_len);
+   return max_len;
+}
+
