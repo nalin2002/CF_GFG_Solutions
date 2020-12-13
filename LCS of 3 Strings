@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+int len(string x,int a,string y,int b,string z,int c){
+   /* if(a==0||b==0||c==0) return 0;
+    if(x[a-1]==y[b-1] && y[b-1]==z[c-1]){
+        return 1+len(x,a-1,y,b-1,z,c-1);
+    }
+    else {
+        return max(len(x,a-1,y,b,z,c),max(len(x,a,y,b-1,z,c),len(x,a,y,b,z,c-1)));
+    }
+    */
+    int dp[a+1][b+1][c+1];
+    for(int i=0;i<=a;i++){
+        for(int j=0;j<=b;j++){
+            for(int k=0;k<=c;k++){
+                if(i==0||j==0||k==0){
+                    dp[i][j][k]=0;
+                }
+                else if(x[i-1]==y[j-1] && y[j-1]==z[k-1]){
+                    dp[i][j][k]=1+dp[i-1][j-1][k-1];
+                }
+                else{
+                    dp[i][j][k]=max(dp[i-1][j][k],max(dp[i][j-1][k],dp[i][j][k-1]));
+                }
+            }
+        }
+    }
+    return dp[a][b][c];
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+     int a,b,c;
+     cin>>a>>b>>c;
+	string x,y,z;
+	cin>>x>>y>>z;
+	
+	cout<<len(x,a,y,b,z,c)<<endl;
+    }
+	return 0;
+}
