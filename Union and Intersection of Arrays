@@ -1,0 +1,115 @@
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,m;
+	    cin>>n>>m;
+	    int a[n];
+	    int b[m];
+	    set<int> s;
+	    for(int i=0;i<n;i++){
+	        cin>>a[i];
+	        s.insert(a[i]);
+	    }
+	    for(int i=0;i<m;i++){
+	        cin>>b[i];
+	        s.insert(b[i]);
+	    }
+	    cout<<s.size()<<endl;
+	}
+	return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,m;
+	    cin>>n>>m;
+	    int a[n];
+	    int b[m];
+	    unordered_map<int,int> mp;
+	    for(int i=0;i<n;i++){
+	        cin>>a[i];
+	        if(mp.find(a[i])!=mp.end())
+	        mp[a[i]]++;
+	        else
+	        mp[a[i]]=1;
+	    }
+	    for(int i=0;i<m;i++){
+	        cin>>b[i];
+	        if(mp.find(b[i])!=mp.end())
+	        mp[b[i]]++;
+	        else
+	        mp[b[i]]=1;
+	    }
+	    cout<<mp.size()<<endl;
+	}
+	return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+void intesection(int a[],int b[],int n,int m){
+    int i=0,j=0;
+    while(i<n && j<m){
+        if(b[j]>a[i]){
+            i++;
+        }
+        else if(b[j]<a[i]){
+            j++;
+        }
+        else{
+            cout<<a[i]<<" ";
+            i++;
+            j++;
+        }
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//if two sorted arrays are given then
+int print_union(int a[],int b[],int n,int m){
+    int i=0,j=0,count=0;
+    while(i<n && j<m){
+        if(a[i]<b[j]){
+            cout<<a[i]<<" ";
+            
+            i++;
+        }
+        else if(a[i]>b[j]){
+            cout<<b[j]<<" ";
+            j++;
+        }
+        else{
+            cout<<a[i]<<" ";
+            i++;
+            j++;
+        }
+        count++;
+    }
+    while(i<n){
+        cout<<a[i]<<" ";
+        count++;
+    }
+    while(j<m){
+        cout<<b[j]<<" ";
+        count++;
+    }
+    return count;
+}
+// the above code does not handle duplicates.so to handle duplicates use hash tables
+
+
