@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+using namespace std;
+
+void fill_count(string s,int* count){
+    int n=s.size();
+    for(int i=0;i<n;i++){
+        count[(int)s[i]]++;
+    }
+}
+void func(string s){
+    int* count=new int[256];
+    for(int i=0;i<256;i++){
+        count[i]=0;
+    }
+    fill_count(s,count);
+    for(int i=0;i<256;i++){
+        if(count[i]>=1){
+            cout<<(char)i<<" count="<<count[i]<<endl;
+        }
+    }
+}
+/*
+we can also use map data structure
+void func(string s){
+    unordered_map<char,int> mp;
+    for(int i=0;i<s.size();i++){
+        if(mp.find(s[i])!=mp.end())
+        mp[s[i]]++;
+        else
+        mp[s[i]]=1;
+    }
+ //this map has the character count of the string   
+}
+
+*/
+int main()
+{
+  string s;
+  cin>>s;
+  func(s); 
+   
+   return 0;
+}
