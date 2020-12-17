@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+bool func(string s1,string s2){
+    if(s1.size()!=s2.size()) return false;
+    
+    string temp=s1+s1;
+    size_t found=temp.find(s2);
+    return (found!=string::npos);
+    
+    /*
+    to get the next occurence:
+    
+    found=temp.find(s2,found+1);
+    if(found!=string::npos){
+    cout<<"Next Occurence "<<found<<endl;
+    }
+    
+    
+    */
+}
+int main()
+{
+  string s1,s2;
+  cin>>s1,s2;
+  cout<<func(s1,s2)<<endl; 
+   
+   return 0;
+}
+
+// str.find() returns a size_t data type
+// string::npos is a static memeber with highest value possible for the size_t data structure
+// size_t is used to represent the size of the object or variable in bytes
+// sizeof() returns size_t data type only
