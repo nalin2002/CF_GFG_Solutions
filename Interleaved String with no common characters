@@ -1,0 +1,22 @@
+bool isInterleaved(string A,string B,string C){
+    int c=C.size();
+    int a=A.size();
+    int b=B.size();
+    if(a+b!=c) return false;
+    int k=0,i=0,j=0;
+    while(k<c){
+        if(i<a && C[k]==A[i] ){
+            i++;
+        }
+        else if(j<b && c[k]==B[j] ){
+            j++;
+        }
+        else {
+            return false;
+        }
+        k++;
+    }
+    return true;
+}
+
+// If there are common characters then we should opt for dynamic programming approach
