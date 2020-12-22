@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,m;
+	    cin>>n>>m;
+	    vector<vector<int>> c(n,vector<int>(m));
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<m;j++){
+	            cin>>c[i][j];
+	        }
+	    }
+	    vector<vector<int>> a(n,vector<int>(m));
+	    for(int i=0;i<n;i++){
+	        a[i][0]=c[i][0];
+	    }
+	    for(int i=0;i<m;i++){
+	        a[0][i]=c[0][i];
+	    }
+	    for(int i=1;i<n;i++){
+	        for(int j=1;j<m;j++){
+	            if(c[i][j]==1){
+	                a[i][j]=min(a[i-1][j],min(a[i][j-1],a[i-1][j-1]))+1;
+	            }
+	            else{
+	                a[i][j]=0;
+	            }
+	        }
+	    }
+	    int maxx=a[0][0];
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<m;j++){
+	            maxx=max(maxx,a[i][j]);
+	        }
+	    }
+	    cout<<maxx<<endl;
+	}
+	return 0;
+}
